@@ -1,0 +1,29 @@
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+# JetBrain
+.idea/
+
+# Python virtual env
+.venv/
+
+# MacOS
+.DS_Store
+
+# tar and zip files
+*.tgz
+*.zip
+
+# kafka binary and connector folder
+kafka_*/*
+confluentinc*/

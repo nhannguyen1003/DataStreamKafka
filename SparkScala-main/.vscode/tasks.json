@@ -1,0 +1,32 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Scala Assembly",
+      "type": "shell",
+      "command": "sbt compile package",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Run Spark Submit",
+      "type": "shell",
+      "command": "~/apache-ecosystem/data-pipeline/spark/spark-3.2.1-bin-hadoop3.2-scala2.13/bin/spark-submit",
+      "args": [
+        "--packages",
+        "org.apache.spark:spark-sql-kafka-0-10_2.13:3.2.1",
+        "--master",
+        "local",
+        "--class",
+        "SparkScala.Main",
+        "target/scala-2.13/sparkscala_2.13-1.0.jar"
+      ],
+      "dependsOn": "Scala Assembly"
+    }
+  ]
+}

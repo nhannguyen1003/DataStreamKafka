@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  broker1:
+    build:
+      context: ./broker1
+    networks:
+      - kafka-network
+    ports:
+      - 29091:29091
+  broker2:
+    build:
+      context: ./broker2
+    networks:
+      - kafka-network
+    ports:
+      - 29092:29092
+  broker3:
+    build:
+      context: ./broker3
+    networks:
+      - kafka-network
+    ports:
+      - 29093:29093
+
+  # python-producer:
+  #   build:
+  #     context: python-producer/
+  #   depends_on:
+  #     - broker1
+  #     - broker2
+  #     - broker3
+  #   networks:
+  #     - kafka-network
+
+networks:
+  kafka-network:
+    driver: 'bridge'
